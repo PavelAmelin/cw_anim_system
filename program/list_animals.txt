@@ -1,0 +1,16 @@
+Dog;Timosha;4;paw, jump, sit;
+Donkey;Mitya;3;jump, kick, take;
+Horse;Windy;6;gallope, kick, jump;
+Camel;Grey;8;spit, kick, swim;
+Cat;Fluffy;2;jump, paw, purr;
+Dog;Rich;6;paw, growl, lie;
+Cat;Sofia;5;catch, jump, sit;
+Hamster;Smile;1;roll, run, stand;
+Horse;Storm;4;jump, gallope, shake;
+Camel;Spot;5;run, sit, spit;
+Hamster;Buble;2;run, swim, paw;
+Camel;Wisy;38;kick, swim, lie;
+Donkey;Mars;23;jump, sit, butt;
+Cat;Marta;11;stand, paw, scratch;
+Dog;Lyon;8;bite, take, search, stand;
+

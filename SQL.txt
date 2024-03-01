@@ -1,0 +1,157 @@
+Use human_friends;
+
+Create table anim_class(
+id int auto_increment primary key,
+class varchar(30)
+);
+
+Insert into anim_class (class) values 
+('pet'),
+('pack');
+
+select * from anim_class;
+
+Create table pet(
+id int auto_increment primary key,
+class_name varchar(30),
+type_id int,
+foreign key (type_id) references anim_class (id) on delete cascade
+); 
+
+Insert into pet (class_name, type_id) values 
+('cat', 1),
+('dog', 1),
+('hamster', 1);
+
+select * from pet;
+
+Create table pack (
+id int auto_increment primary key,
+class_name varchar(30),
+type_id int,
+foreign key (type_id) references anim_class (id) on delete cascade
+); 
+
+Insert into pack (class_name, type_id) values 
+('horse', 2),
+('camel', 2),
+('donkey', 2);
+
+select * from pack;
+
+Create table cat (
+id int auto_increment primary key,
+name varchar(30),
+birthdate date,
+commands varchar(50),
+pet_id int,
+foreign key (pet_id) references pet (id) on delete cascade
+);
+
+Insert into cat (name, birthdate, commands, pet_id) values 
+('Fluffy', '2022-02-02', 'jump, paw, purr', 1),
+('Sofia', '2019-02-05', 'catch, jump, sit', 1),
+('Marta', '2013-01-09', 'stand, paw, scratch', 1);
+
+Create table dog (
+id int auto_increment primary key,
+name varchar(30),
+birthdate date,
+commands varchar(50),
+pet_id int,
+foreign key (pet_id) references pet (id) on delete cascade
+);
+
+Insert into dog (name, birthdate, commands, pet_id) values 
+('Timosha', '2020-01-07', 'paw, jump, sit', 2),
+('Rich', '2018-02-10', 'paw, growl, lie', 2),
+('Lyon', '2016-01-11', 'bite, take, search, stand', 2);
+
+Create table hamster (
+id int auto_increment primary key,
+name varchar(30),
+birthdate date,
+commands varchar(50),
+pet_id int,
+foreign key (pet_id) references pet (id) on delete cascade
+);
+
+Insert into hamster (name, birthdate, commands, pet_id) values 
+('Smile', '2023-01-11', 'roll, run, stand', 3),
+('Buble', '2022-02-12', 'run, swim, paw', 3);
+
+
+Create table horse (
+id int auto_increment primary key,
+name varchar(30),
+birthdate date,
+commands varchar(50),
+pack_id int,
+foreign key (pack_id) references pack (id) on delete cascade
+);
+
+Insert into horse (name, birthdate, commands, pack_id) values 
+('Windy', '2018-01-04', 'gallope, kick, jump', 1),
+('Storm', '2020-02-12', 'jump, gallope, shake', 1);
+
+Create table camel (
+id int auto_increment primary key,
+name varchar(30),
+birthdate date,
+commands varchar(50),
+pack_id int,
+foreign key (pack_id) references pack (id) on delete cascade
+);
+
+Insert into camel (name, birthdate, commands, pack_id) values 
+('Grey', '2016-03-11', 'spit, kick, swim', 2),
+('Spot', '2019-01-12', 'run, sit, spit', 2),
+('Wisy', '1985-11-10', 'kick, swim, lie', 2);
+
+Create table donkey (
+id int auto_increment primary key,
+name varchar(30),
+birthdate date,
+commands varchar(50),
+pack_id int,
+foreign key (pack_id) references pack (id) on delete cascade
+);
+
+Insert into donkey (name, birthdate, commands, pack_id) values 
+('Mitya', '2020-09-08', 'jump, kick, take', 3),
+('Mars', '2000-10-06', 'jump, sit, butt', 3);
+
+select * from cat;
+select * from dog;
+select * from hamster;
+select * from horse;
+select * from camel;
+select * from donkey;
+
+delete from camel where pack_id = 2;
+select * from horse union select * from donkey;
+
+create table all_animals as 
+select *, 'cat' as type from cat union select *, 
+'dog' as type from dog union select *, 'hamster' as type from hamster
+union select *, 'horse' as type from horse union select *, 'donkey'
+ as type from donkey;
+
+create table age_animals as
+select name, type, commands, 
+timestampdiff(month, birthdate, current_date) / 12 as age_month
+from all_animals; 
+
+select * from age_animals where age_month between 12 and 36;
+
+
+
+
+
+
+
+
+
+
+
+

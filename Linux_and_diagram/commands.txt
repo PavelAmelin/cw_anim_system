@@ -1,0 +1,36 @@
+   69  mkdir Animals
+   70  cd Animals
+   71  cat > pets
+   72  cat > pack_animals
+   73  cat pets pack_animals > animals
+   74  cat animals
+   75  ls
+   76  mv animals human_friends
+   77  ls
+   78  ls -ali
+   79  cd ..
+   80  mkdir Animals_1
+   81  cd Animals_1
+   82  cd ..
+   83  cd Animals
+   84  mv human_friends ~/Animals_1
+   85  cd ~/Animals_1
+   86  ls
+   87  ls -ali
+   88  mysql --version
+   89  sudo mysql
+   90  mysqld --version
+   91  wget https://dev.mysql.com/get/mysql-apt-config_0.8.28-1_all.deb
+   92  sudo dpkg -i mysql-apt-config_0.8.28-1_all.deb
+   93  sudo apt-get update
+   94  sudo apt-get install mysql-server
+   95  systemctl status mysql
+   96  sudo dpkg -i mc_4.8.29-2_amd64.deb
+   97  web http://archive.ubuntu.com/ubuntu/pool/universe/m/mc/mc_4.8.29-2_amd64.deb
+   98  wget http://archive.ubuntu.com/ubuntu/pool/universe/m/mc/mc_4.8.29-2_amd64.deb
+   99  sudo dpkg -i mc_4.8.29-2_amd64.deb
+  100  mc
+  101  sudo dpkg -r
+  102  sudo dpkg -r mc
+  103  mc
+  104  history
